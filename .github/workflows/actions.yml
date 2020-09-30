@@ -1,6 +1,7 @@
 name: Actions 101
+
 on:
-  push:
+  push
 
 jobs:
   hello_world:
@@ -8,5 +9,19 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
+
     - name: Run Script
       run: echo Hello, Mark!
+
+  lint:
+      name: Swiftlint
+      runs-on: macos-latest
+      steps:
+      - uses: actions/checkout@master
+
+      - name: Install Swiftlint
+        run: |
+          echo Linting...
+          brew install swiftlint
+          swiftlint autocorrect
+          echo Linting done!
