@@ -14,18 +14,19 @@ jobs:
       with:
         status: starting
       if: always()
-
+      
     - uses: actions/checkout@master
-
+    
     - name: Install Swiftlint
+      id: swiftlint
       run: |
         brew install swiftlint
         swiftlint autocorrect
-
+      
     - uses: act10ns/slack@v1
       with:
         status: ${{ job.status }}
-        steps: ${{ toJson(job.steps) }}
+        steps: ${{ toJson(steps) }}
       if: always()
 
   build:
