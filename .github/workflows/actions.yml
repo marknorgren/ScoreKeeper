@@ -4,27 +4,29 @@ on:
   push
 
 jobs:
-  hello_world:
-    name: Hello World!
+  lint:
+    name: Swiftlint
     runs-on: macos-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
+    - uses: act10ns/slack@v1
+      with:
+        status: starting
+      if: always()
+
     - uses: actions/checkout@master
 
-    - name: Run Script
-      run: echo Hello, Mark!
+    - name: Install Swiftlint
+      run: |
+        brew install swiftlint
+        swiftlint autocorrect
 
-  lint:
-      name: Swiftlint
-      runs-on: macos-latest
-      steps:
-      - uses: actions/checkout@master
-
-      - name: Install Swiftlint
-        run: |
-          echo Linting...
-          brew install swiftlint
-          swiftlint autocorrect
-          echo Linting done!
+    - uses: act10ns/slack@v1
+      with:
+        status: ${{ job.status }}
+        steps: ${{ toJson(steps) }}
+      if: always()
 
   build:
     name: Build
