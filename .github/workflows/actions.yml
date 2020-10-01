@@ -19,9 +19,7 @@ jobs:
     
     - name: Install Swiftlint
       id: swiftlint
-      run: |
-        brew install swiftlint
-        swiftlint autocorrect
+      run: swiftlint autocorrect
       
     - uses: act10ns/slack@v1
       with:
