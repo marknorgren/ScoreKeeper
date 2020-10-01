@@ -190,6 +190,7 @@
 				50E49FA72521101C006F70C7 /* Sources */,
 				50E49FA82521101C006F70C7 /* Frameworks */,
 				50E49FA92521101C006F70C7 /* Resources */,
+				4DE7FEDB252550CC00A2C9C0 /* swift lint */,
 			);
 			buildRules = (
 			);
@@ -310,6 +311,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DE7FEDB252550CC00A2C9C0 /* swift lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "swift lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		50E49FA72521101C006F70C7 /* Sources */ = {
@@ -480,7 +502,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ScoreKeeper/Preview Content\"";
-				DEVELOPMENT_TEAM = RQ632LL2X3;
+				DEVELOPMENT_TEAM = 6Z2XT36CY3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ScoreKeeper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -488,7 +510,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.okun.ScoreKeeper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.markedsystems.ScoreKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -502,7 +524,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ScoreKeeper/Preview Content\"";
-				DEVELOPMENT_TEAM = RQ632LL2X3;
+				DEVELOPMENT_TEAM = 6Z2XT36CY3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ScoreKeeper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -510,7 +532,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.okun.ScoreKeeper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.markedsystems.ScoreKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
