@@ -31,16 +31,20 @@ echo "========================================"
 echo "Importing certs into keychain..."
 security import ./ScoreKeeperCreds/Certs/Distribution/Certificate.p12 -t agg -k ~/Library/Keychains/build.keychain -P ${ENCRYPTION_KEY} -A
 echo "========================================"
+
 echo "Unlocking main keychain..."
 security list-keychains -s ~/Library/Keychains/build.keychain
 security default-keychain -s ~/Library/Keychains/build.keychain
 security unlock-keychain -p "" ~/Library/Keychains/build.keychain
 echo "========================================"
+
 echo "Setting key partition..."
 security set-key-partition-list -S apple-tool:,apple: -s -k "" ~/Library/Keychains/build.keychain
 echo "========================================"
+
 echo "Available Certificates:"
 security find-identity -p codesigning -v
 echo "========================================"
+
 echo "Available Provisioning Profiles:"
 ls ~/Library/MobileDevice/Provisioning\ Profiles/
